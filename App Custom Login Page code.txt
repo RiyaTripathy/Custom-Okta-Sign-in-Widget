@@ -1,0 +1,606 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="none" />
+
+    <title>CMS - Sign In</title>
+    <!-- Core widget js and css -->
+<script type="text/javascript"
+        src="https://ok5static.oktacdn.com/assets/js/sdk/okta-signin-widget/3.9.2/js/okta-sign-in.min.js"></script>
+<link rel="stylesheet"
+      type="text/css"
+      href="https://ok5static.oktacdn.com/assets/js/sdk/okta-signin-widget/3.9.2/css/okta-sign-in.min.css">
+
+<!-- Customizable css theme options. Link your own stylesheet or override styles inline. -->
+<link rel="stylesheet"
+      type="text/css" href="">
+
+<!-- styles for custom sign in -->
+<link rel="stylesheet" type="text/css" href="https://ok5static.oktacdn.com/assets/loginpage/css/custom-signin.css">
+
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<style>
+#okta-sign-in.auth-container.main-container {
+	 box-shadow: 0 0px 0 rgba(175, 175, 175, 0.12);
+}
+
+#okta-login-container .login-container{
+    margin-top: 5px;
+}
+#okta-sign-in .auth-content {
+    background-color: #22334e;
+    overflow: hidden;
+         
+}
+
+#okta-sign-in .o-form .o-form-input .input-tooltip {
+    
+}
+
+#okta-sign-in {
+  border-width: 0;
+  margin-bottom: 0;
+}
+
+#okta-sign-in.auth-container.main-container {
+  background-color: #22334e;  
+}
+
+#okta-sign-in.no-beacon .auth-content {
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+#okta-sign-in.auth-container .okta-sign-in-header {
+    background-color: #22334e;
+    border-bottom-color: #22334e;
+
+}
+
+#okta-sign-in .button.button-primary, #okta-sign-in.auth-container .button-primary:hover {
+  /* -- Buttons' Colors -- */
+  color: #fff;
+  background-color: #2e8540;
+  border-color: #2e8540;
+  background-image: none;
+  box-shadow: none; 
+}
+
+#okta-sign-in.auth-container main-container can-remove-beacon {
+    background-color: #ddd;
+
+}
+
+h2.okta-form-title .o-form-head {
+	color: #FFF;
+}
+
+/*h2.o-form-head, .auth-footer {*/
+div.auth-footer {
+  display: none;
+}
+#okta-sign-in .auth-footer {
+    padding-bottom: 15px;
+  }
+/*
+  	#okta-sign-in a {
+		color: #777;
+		display: none;
+	}
+*/
+
+#t-and-c-container {
+  border-color: #22334e;
+  z-index: 99;
+  background-image: none;
+  box-shadow: none; 
+  margin-top: -10px;
+  text-align: center;
+  background-color: #22334e;
+  color: #ffffff;
+  padding: 0px 30px 20px 30px;
+  max-width: 340px;
+  overflow: hidden;
+  margin-bottom: 0px;
+  font-size: 16px;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+#t-and-c {
+    z-index: 100;
+    font-size: 16px;
+    text-align: left;
+    padding: 12px;
+    font-weight: normal;
+    color: #FFF;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p.mobile-recovery-hint {
+    color: #FFF;
+}
+
+p.t-c {
+    color: #000;
+}
+
+#okta-sign-in.auth-container .okta-form-subtitle, #okta-sign-in.auth-container .okta-form-label {
+    color: #FFF;
+}
+#okta-sign-in.auth-container .link:link {
+    color: #FFF;
+}
+
+label {
+    color: #FFF;
+}
+
+a.link.send-email-link {
+    color: #FFF;
+}
+
+div a {
+    font-weight: normal;
+    color: #FFF;
+  }
+
+@media only screen and (max-width: 600px) {
+  #okta-sign-in.auth-container .auth-content,
+  .cms-newreg-container,
+  #t-and-c-container      
+        {
+      max-width:none;
+  }
+}
+
+#app-header {
+    background: #112e51;
+    padding: 30px 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hide{
+display: none;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.terms {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.terms-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+div.custom-checkbox {
+	color: #FFF;
+}
+
+div.okta-form-label {
+	color: #FFF;
+}
+          
+#okta-sign-in.auth-container h3 {
+	color: #FFF;
+}
+
+#okta-sign-in.auth-container h2 {
+    color: #FFF;
+    margin-top: 0px;
+}
+
+div.list-title {
+	color: #FFF;
+}
+div.enroll-factor-description p {
+	color: #FFF;
+}
+
+div.a {
+	color: #FFF;
+}
+
+.sr-only {
+  	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+     
+p.instructions {
+	color: #FFF;
+}
+p.instructions-title {
+	color: #FFF;
+}
+
+div.mfa-send-email-content {
+	color: #FFF;
+}
+      
+div.scan-instructions-details {
+    color: #FFF;
+}         
+                                 
+div.mfa-email-sent-content {
+	color: #FFF;
+}
+         
+.inline-totp-verify {
+	color: #FFF !important;
+    background: #2E8540 !important;
+    border-color: #2E8540 !important;
+}
+                                   
+.call-request-button {
+	color: #FFF !important;
+    background: #036BB0 !important;
+    border-color: #036BB0 !important;
+}
+               
+.sms-request-button {
+	color: #FFF !important;
+    background: #036BB0 !important;
+    border-color: #036BB0 !important;
+}
+      
+.btn-disabled {
+	color: #FFF !important;
+    background: #6A686A !important;
+    border-color: #6A686A !important;
+}      .
+
+
+</style>
+
+</head>
+<body>
+
+
+  
+<h1 class="sr-only">Welcome to <abbr title="Centers for Medicare and Medicaid Services">CMS</abbr> IDM Portal</h1>
+
+    <div class="login-bg-image" style="background-image: url('https://ok5static.oktacdn.com/fs/bco/7/fs023r05t71byxSAe297');opacity: 0.4"></div>
+
+    <div id="okta-login-container"></div>
+<div id="t-and-c-container">
+<div id="t-and-c"><input type="checkbox" title="Agree to terms and conditions" name="tandc" id="tandc" value="true" class="form-control"> Agree to our <a href="#" title="View terms and conditions" onClick="cmsTC(); return false;" >Terms &amp; Conditions</a></div><br>Forgot your <a href="../signin/forgot-password">Password</a> or <a href="../signin/unlock">Unlock</a> your account?<br><br>
+</div>
+<!-- The Modal -->
+<div id="tnc" class="terms">
+
+  <!-- Modal content -->
+  <div class="terms-content">
+    <span class="close">&times;</span>
+    <p class="t-c"><font style="font-family: serif;color: blue;font-size:20px;font-weight: bold;">Terms & Conditions</font><br><br>
+    OMB No.0938-1236 | Expiration Date: 03/31/2021 | <a style="color: blue" href="#" id="paperworkLink">Paperwork Reduction Act</a><br><br>
+    Updated Departmental Standard Warning Banner for HHS Information Systems, Memo dated July 14, 2016<br><br>
+ 
+    This warning banner provides privacy and security notices consistent with applicable federal laws, directives, and other federal guidance for accessing this Government system, which includes (1) this computer network, (2) all computers connected to this network, and (3) all devices and storage media attached to this network or to a computer on this network. This information system is provided for Government-authorized use only.<br><br>
+    
+    Unauthorized or improper use of this system is prohibited and may result in disciplinary action and/or civil and criminal penalties.<br><br>
+    
+    Personal use of social media and networking sites on this system is limited as to not interfere with official work duties and is subject to monitoring.<br><br>
+    
+    By using this system, you understand and consent to the following: The Government may monitor, record, and audit your usage, including usage of personal devices and email systems for official duties or to conduct HHS business. Therefore, you have no reasonable expectation of privacy regarding any communication or data transiting or stored on this system. At any time, and for any lawful Government purpose, the government may monitor, intercept, and search and seize any communication or data transiting or stored on this system.<br><br>
+    
+    Any communication or data transiting or stored on this system may be disclosed or used for any lawful Government purpose.</p>
+  </div>
+</div>
+
+	
+<!--<div class="cms-newreg-container"> 
+      <div class="cms-new-regbtn-container">
+        <a href="https://portaldev.cms.gov/wps/portal/unauthportal/selfservice/newuserregistration/" id="cms-newuser-reg" 
+			class="cms-newuser-reg" title="New User Registration" onmouseover="this.style.background='#0272BC';" 
+			onmouseout="this.style.background='#0272BC';">New User Registration</a>
+      </div>
+    </div>-->
+
+
+    <!--
+        "OktaUtil" defines a global OktaUtil object
+        that contains methods used to complete the Okta login flow.
+     -->
+    
+<div id="okta-sign-in" class="auth-container main-container unsupported-message-container" style="display:none">
+    <div id="unsupported-cookie" class="unsupported-message" style="display:none">
+        <h2 class="o-form-head">Cookies are required</h2>
+        <p>Cookies are disabled on your browser. Please enable Cookies and refresh this page.</p>
+        <a class="button button-primary" target="_blank" href=".">
+            Refresh
+        </a>
+    </div>
+</div>
+<script type="text/javascript">
+  var signInSuccessCallBackFunction;
+  var oktaData = {"redirectUri":"https\x3A\x2F\x2Fidm.cms.gov","isMobileSso":false,"fromUri":"","isMobileClientLogin":false,"signIn":{"logoText":"CMS\x20logo","features":{"emailRecovery":true,"restrictRedirectToForeground":true,"deviceFingerprinting":true,"consent":true,"useDeviceFingerprintForSecurityImage":true,"customExpiredPassword":true,"router":true,"showPasswordToggleOnSignInPage":false,"securityImage":false,"autoPush":true,"smsRecovery":true,"idpDiscovery":false,"selfServiceUnlock":true,"webauthn":true,"showPasswordRequirementsAsHtmlList":false,"registration":false,"rememberMe":false,"callRecovery":true,"multiOptionalFactorEnroll":true},"baseUrl":"https\x3A\x2F\x2Fidm.cms.gov","helpSupportNumber":"","assets":{"baseUrl":"\x2F\x2Fok5static.oktacdn.com\x2Fassets\x2Fjs\x2Fmvc\x2Floginpage\x2Fjs\x2Fsdk\x2Fokta\x2Dsignin\x2Dwidget"},"customButtons":[],"idpDiscovery":{"requestContext":""},"logo":"https\x3A\x2F\x2Fok5static.oktacdn.com\x2Ffs\x2Fbco\x2F1\x2Ffs023hjdf3pMMueqz297","language":"en","helpLinks":{"help":"https\x3A\x2F\x2Fwww.cms.gov\x2FResearch\x2DStatistics\x2DData\x2Dand\x2DSystems\x2FCMS\x2DInformation\x2DTechnology\x2FEnterpriseIdentityManagement\x2FHelp\x2DDesk\x2DSupport.html","forgotPassword":"","unlock":"","custom":[]},"piv":{},"i18n":{"en":{"mfa.challenge.password.placeholder":"Enter\x20Password","help":"For\x20help\x20please\x20contact\x20your\x20Application\x20Help\x20Desk","password.forgot.email.or.username.tooltip":"Email\x20or\x20Username","needhelp":"Need\x20help\x20signing\x20in\x3F","primaryauth.username.placeholder":"Enter\x20Username","password.forgot.email.or.username.placeholder":"Email\x20or\x20Username","account.unlock.email.or.username.tooltip":"Email\x20or\x20Username","unlockaccount":"Unlock\x20account\x3F","account.unlock.email.or.username.placeholder":"Email\x20or\x20Username","primaryauth.password.placeholder":"Enter\x20Password","primaryauth.title":"Sign\x20In","forgotpassword":"Forgot\x20password\x3F"}}},"accountChooserDiscoveryUrl":"https\x3A\x2F\x2Flogin.okta.com\x2Fdiscovery\x2Fiframe.html","publishToAccountChooser":true,"preventBrowserFromSavingOktaPassword":true};
+
+  var runLoginPage = function(fn) {
+    var mainScript = document.createElement('script');
+    mainScript.src = "https://ok5static.oktacdn.com/assets/js/mvc/loginpage/initLoginPage.pack.7aaa96bdd7f3862c4d2569d3290a9c09.js";
+    document.getElementsByTagName('head')[0].appendChild(mainScript);
+    fn && mainScript.addEventListener('load', function () { setTimeout(fn, 1) });
+  };
+
+  var OktaUtil = {
+    _addClass: function(el, className) {
+      if(el) {
+        var elementClasses = el.className.split(" ");
+        if (elementClasses.indexOf(className) == -1) {
+          el.className += " " + className;
+        }
+      }
+    },
+
+    _removeElement: function(el) {
+      if(el) {
+        el.parentNode.removeChild(el);
+      }
+    },
+
+    _hideElement: function(el) {
+      if(el) {
+        el.style.display = 'none';
+      }
+    },
+
+    addLoginContainerClass: function () {
+      this._addClass(document.getElementById('okta-login-container'), 'login-container');
+    },
+
+    showUnsupportedCookieWarning: function () {
+      document.getElementById('okta-sign-in').removeAttribute('style');
+      document.getElementById('unsupported-cookie').removeAttribute('style');
+    },
+
+    removeUnsupportedCookieWarning: function () {
+      this._removeElement(document.getElementById('okta-sign-in'));
+    },
+
+    hideOktaLoginContainer: function () {
+      this._hideElement(document.getElementById('okta-login-container'));
+    },
+
+    isChromeOs:  function () {
+      return /\bCrOS\b/.test(navigator.userAgent);
+    },
+
+    addChromeOSScript: function() {
+      var chromeOSScript = document.createElement('script');
+      chromeOSScript.src = "/js/google/users-1.0.js";
+      document.getElementsByTagName('head')[0].appendChild(chromeOSScript);
+    },
+
+    getSignInWidgetConfig: function () {
+        return oktaData.signIn;
+    },
+
+    completeLogin: function (res) {
+      signInSuccessCallBackFunction(res);
+    },
+
+    getRequestContext: function () {
+      return oktaData.requestContext;
+    },
+
+    setRedirectUri: function (uri) {
+      oktaData.redirectUri = uri;
+    },
+
+    init: function () {
+      if (!navigator.cookieEnabled) {
+        this.showUnsupportedCookieWarning();
+        this.hideOktaLoginContainer();
+      } else {
+        this.removeUnsupportedCookieWarning();
+
+        // add class if app login banner is present
+        if (oktaData.isAppBannerVisible) {
+          this.addLoginContainerClass();
+        }
+
+        oktaData.isCustomSignIn = true;
+        oktaData.hasChromeOSFeature = this.isChromeOs();
+        if (oktaData.hasChromeOSFeature) {
+          this.addChromeOSScript();
+        }
+        runLoginPage(function () {
+          var res = OktaLogin.initLoginPage(oktaData);
+          oktaData.signIn = res.signIn;
+          signInSuccessCallBackFunction = res.signInSuccessCallbackFn;
+
+        });
+      }
+    }
+  };
+  OktaUtil.init();
+  //# sourceURL=OktaUtil.js
+</script>
+
+
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>-->
+    <script type="text/javascript">
+
+		$(function() {
+           	$("#paperworkLink").on("click",function(){
+              alert("According to the Paperwork Reduction Act of"+" 1995, no persons are required to respond to a"+" collection of information unless it displays a"+" valid OMB control number. The valid OMB control"+" number for this information collection is 0938-1236."+" The time required to complete this information"+" collection is estimated to average 20 minutes per"+" response, including the time to review instructions,"+" search existing data resources, gather the data"+" needed, and complete and review the information"+" collection.  If you have comments concerning the"+" accuracy of the time estimate(s) or suggestions for"+" improving this form, please write to: CMS, 7500 Security Boulevard,"+" Attn: PRA Reports Clearance Officer, Mail Stop C4-26-05, Baltimore,"+" Maryland 21244-1850.");
+              return false;
+            });                            
+      	});
+		function callback(){
+			document.getElementById("tandc").checked = false;	
+		}
+
+        // "config" object contains default widget configuration
+        // with any custom overrides defined in your admin settings.
+        var config = OktaUtil.getSignInWidgetConfig();
+		//config.i18n.primaryauth.submit = 'Login';  
+		//config.i18n.needhelp=' ';
+		config.features.rememberMe=false;
+		config.features.registration = false;
+		config.features.securityImage = false;
+		config.features.selfServiceUnlock = true;
+		config.processCreds= function (creds, callback) {
+			var sel = document.getElementById("tandc").checked;
+			if(sel === false){
+             TCErrorDisplay();
+			}
+			else{
+			callback();
+			}
+		    };
+
+        // Render the Okta Sign-In Widget
+        var oktaSignIn = new OktaSignIn(config);
+        oktaSignIn.renderEl({ el: '#okta-login-container' },          
+            OktaUtil.completeLogin,
+            function(error) {
+                // Logs errors that occur when configuring the widget.
+                // Remove or replace this with your own custom error handler.
+                console.log(error.message, error);
+            }
+        );
+
+
+        function TCErrorDisplay() {
+          if($('.o-form-error-container').length){
+            var htmlToDisplay = '<div id="tandcError"><div class="okta-form-infobox-error infobox infobox-error" role="alert"><span class="icon error-16">';
+                htmlToDisplay+='</span><p>Please agree to the Terms & Conditions.</p></div></div>'
+                $('.o-form-error-container').empty().html(htmlToDisplay);
+                $('.o-form-error-container').addClass('o-form-has-errors');
+          }
+          //alert("Select terms & conditions");
+        }
+    
+        function cmsTC() {
+          tnc.style.display = "block";
+        }
+        
+        // Get the modal
+        var modal = document.getElementById('tnc');
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          tnc.style.display = "none";
+        }
+    
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == tnc) {
+            tnc.style.display = "none";
+          }
+        }
+        document.getElementById('tandc').onchange = function(){          
+          var tAndCErrorElem = document.getElementById('tandcError');                                    
+            if (this.checked) {
+                tAndCErrorElem.parentNode.removeChild(tAndCErrorElem);
+            }
+        }
+ // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ // BA:  show/hide t&c + recovery links depending on screen rendered
+ 
+ function toggleMainSignIn() {
+  //console.log("Showing main sign in screen");
+ $("#t-and-c-container").show();
+ }
+ 
+ function toggleRecovery() {
+  //console.log("Showing recovery screen");
+  $("#t-and-c-container").hide();
+  $("div.auth-footer").show();                        
+ }
+
+ // hide/show t&c, recovery, 
+
+function checkTandC() {
+   // Handler for .ready() called.
+  var pageUrl = $( location ).attr("href");
+  //console.log("URL = " + pageUrl);
+  if (pageUrl.includes("/signin/") && !pageUrl.includes("/password-reset")) {
+   toggleRecovery();
+  }
+  else {
+   toggleMainSignIn();    
+  }
+}
+
+// call on initial document.ready()
+$( document ).ready(function() {
+	checkTandC();
+})
+
+// check continuously, since JS page redraws do not trigger
+// any document.ready() or window.load() events to fire
+window.setInterval(function() {
+	checkTandC();
+}, 100);
+  
+ 
+ 
+ // END show/hide t&c + recovery links code
+ // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ 
+
+ 
+	
+
+
+</script>
+</body>
+</html>
