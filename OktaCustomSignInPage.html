@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="none" />
+
+    <title>{{pageTitle}}</title>
+    {{{SignInWidgetResources}}}
+</head>
+<body>
+    <div class="login-bg-image" style="background-image: {{bgImageUrl}}"></div>
+    <div id="okta-login-container"></div>
+    <!--
+        "OktaUtil" defines a global OktaUtil object
+        that contains methods used to complete the Okta login flow.
+     -->
+    {{{OktaUtil}}}
+
+
+
+<style>
+.qtip-custom {
+          display: none !important;
+        }
+#okta-sign-in.auth-container {
+  &.main-container {
+  /* -- Fonts and Text Colors -- */
+  	font-size: 14px
+    
+  }
+h2,
+  h3 {
+  /* -- Fonts and Text Colors -- */
+    font-size: 14px
+    color: #9DFF33
+  }
+input[type="submit"],
+  input[type="button"] {
+    /* -- Submit Buttons' Fonts -- */
+    font-size: 16px
+  }
+
+}
+span {
+  content: "\26A0";
+}
+#okta-sign-in.auth-container .button:hover {
+  background: #cc0000; 
+}
+#okta-sign-in.auth-container .button:focus {
+  background: #D3D3D3; 
+  border: #cc0000;
+}
+#okta-sign-in.auth-container .button:active {
+  background: #D3D3D3; 
+  border: #cc0000;
+}
+#okta-sign-in.auth-container .button:border {
+              border: #cc0000;
+}
+
+button {
+            font-size: 20px;
+            border: 3px solid black;
+            color: white;
+            background: #cc0000;
+            cursor: pointer;
+        }
+#okta-sign-in.auth-container .button-primary  {
+            color: white;
+            background: #cc0000;
+            border: #cc0000;
+            font-size: 16px
+        }
+.qtip-custom .qtip-content {
+    font-family: Arial;
+    font-size: 13.5px      
+}
+#okta-sign-in.auth-container .o-form-head {
+    color: #cc0000;
+    font-size: 14px
+}
+#okta-sign-in .o-form .custom-checkbox label {
+    font-size: 14px;
+    box-shadow: none;
+}
+#okta-sign-in .registration-container .registration-label {
+     font-size: 14px
+           color: #D3D3D3
+            }
+
+#okta-sign-in .primary-auth-form.o-form .o-form-input .o-form-input-name-username {
+           box-shadow: none;
+           border: 1px solid #D3D3D3
+        }
+#okta-sign-in .primary-auth-form.o-form .o-form-input .o-form-input-name-password {
+           box-shadow: none;
+           border: 1px solid #D3D3D3
+        }
+#okta-sign-in.auth-container a.link:link {
+    color: #cc0000;
+    font-size: 14px
+}
+#okta-sign-in.auth-container .registration-link,
+        #okta-sign-in.auth-container .auth-footer
+        {
+            color: #cc0000;
+            font-size: 14px
+        }
+</style>
+
+    <script type="text/javascript">
+       	
+        
+        		//redirectUrl = "https://myappstest.halliburton.com";
+				
+//Modification for testing start here	
+        		var fromURL = getQueryString("fromURI");
+				//var redirectUrl = "";
+				console.log(fromURL);
+				if(!fromURL){
+                	var redirectUrl = "https://myappstest.halliburton.com";
+                }
+        		
+//End here
+                // "config" object contains default widget configuration
+                // with any custom overrides defined in your admin settings.
+                var config = OktaUtil.getSignInWidgetConfig();
+        		//config.features.router = true;
+        		//config.features.registration = true;
+				
+               
+        		 if(redirectUrl) {
+              		config.relayState = redirectUrl;
+            	}
+        
+        		config.registration = {
+                	preSubmit: function (postData, onSuccess, onFailure) {
+                    // handle preSubmit callback
+                    console.log("handling... PreSubmit");
+                    console.log(JSON.stringify(postData));
+                    var error = {
+                        "errorSummary": "Registration Error",
+                        "errorCauses": [
+                            {
+                                "errorSummary": "Halliburton email accounts are already created. Click back and Sign In at the bottom of the form",
+                                "reason": "registration.error.email-domain",
+                                "resource": "User",
+                                "property": "email", //should match field name
+                                "arguments": []
+                            }
+                        ]
+                    };
+                    if(postData.email.includes("@halliburton.com")) {
+                      onFailure(error);
+                    } else {
+                      onSuccess(postData);
+                    }
+                }
+                }
+                // Render the Okta Sign-In Widget
+                var oktaSignIn = new OktaSignIn(config);
+                oktaSignIn.renderEl({ el: '#okta-login-container' },
+                    OktaUtil.completeLogin,
+                    function(error) {
+                        // Logs errors that occur when configuring the widget.
+                        // Remove or replace this with your own custom error handler.
+                        console.log(error.message, error);
+                    }
+                );
+        
+        		//Function to obtaim the query string.  Note that your server application may handle this differently.
+            	function getQueryString() {
+                  var key = false, res = {}, itm = null;
+                  // get the query string without the ?
+                  var qs = location.search.substring(1);
+                  // check for the key as an argument
+                  if (arguments.length > 0 && arguments[0].length > 1)
+                    key = arguments[0];
+                  // make a regex pattern to grab key/value
+                  var pattern = /([^&=]+)=([^&]*)/g;
+                  // loop the items in the query string, either
+                  // find a match to the argument, or build an object
+                  // with key/value pairs
+                  while (itm = pattern.exec(qs)) {
+                    if (key !== false && decodeURIComponent(itm[1]) === key)
+                      return decodeURIComponent(itm[2]);
+                    else if (key === false)
+                      res[decodeURIComponent(itm[1])] = decodeURIComponent(itm[2]);
+                  }
+        
+                  return key === false;
+        		}
+
+config.i18n.en = {
+        	"primaryauth.username.placeholder": "Email",
+  			"primaryauth.username.tooltip": "Email"                               
+        }
+    </script>
+
+<p style="text-align: center; font-size:12pt; color:#cc0000"> <span>&#9888;</span> Non-Halliburton accounts will expire after 1 year of inactivity</p>
+</body>
+</html>
