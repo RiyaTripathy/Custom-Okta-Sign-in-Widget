@@ -1,0 +1,435 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="robots" content="none">
+      <title>NETCCN - Sign In</title>
+      <!-- Core widget js and css -->
+<script type="text/javascript"
+        src="https://ok11static.oktacdn.com/assets/js/sdk/okta-signin-widget/3.9.2/js/okta-sign-in.min.js"></script>
+<link rel="stylesheet"
+      type="text/css"
+      href="https://ok11static.oktacdn.com/assets/js/sdk/okta-signin-widget/3.9.2/css/okta-sign-in.min.css">
+
+<!-- Customizable css theme options. Link your own stylesheet or override styles inline. -->
+<link rel="stylesheet"
+      type="text/css" href="">
+
+<!-- styles for custom sign in -->
+<link rel="stylesheet" type="text/css" href="https://ok11static.oktacdn.com/assets/loginpage/css/custom-signin.css">
+
+      <style>
+         .hide {
+         display: none;
+         }
+         /* The Modal (background) */
+         .terms {
+         display: none; /* Hidden by default */
+         position: fixed; /* Stay in place */
+         z-index: 9999; /* Sit on top */
+         padding-top: 10px; /* Location of the box */
+         left: 0;
+         top: 0;
+         width: 100%; /* Full width */
+         height: 100%; /* Full height */
+         overflow: auto; /* Enable scroll if needed */
+         background-color: rgb(0, 0, 0); /* Fallback color */
+         background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+         overflow-y: auto;
+         }
+         /* Modal Content */
+         .terms-content {
+         background-color: #fefefe;
+         margin: auto;
+         padding: 20px;
+         border: 1px solid #888;
+         width: 80%;
+         }
+         /* The Close Button */
+         .close {
+         opacity: 0.7;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+         border: 0;
+         background: 0 0;
+         }
+         #t-and-c-container {
+         border-color: #22334e;
+         z-index: 99;
+         background-image: none;
+         box-shadow: none;
+         margin-top: -10px;
+         text-align: center;
+         background-color: #white;
+         color: #aaaaa;
+         padding: 5px 30px 20px 30px;
+         max-width: 340px;
+         overflow: hidden;
+         margin-bottom: 0px;
+         font-size: 14px;
+         font-weight: 900;
+         font-family: 'montserrat', Arial, Helvetica, sans-serif;
+         margin-left: auto;
+         margin-right: auto;
+         box-shadow:       inset 0 0 3px grey;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="login-bg-image" style="background-image: none"></div>
+      <div id="tnc" class="terms" role="dialog" tabindex="-1" aria-describedby="terms-content">
+         <!-- Modal content -->
+         <div class="terms-content" id="terms-content">
+            <p class="t-c"><font style="font-family: serif;color: blue;font-size:14px;font-weight: bold;">Terms &
+               Conditions</font><br><br>
+               These Terms & Conditions (“T&Cs”) will apply to any use by you (the “User”) of the National Telecritical Care Network (NETCCN), including, without limitation, the platform and content (cullectively, the “App”) created by the Telemedicine and Advance Technulogy Research Center (TATRC) of the U.S. Army Medical Research & Development Command (USAMRDC) through an Other Transaction Agreement (OTA) with Deloitte The Government has data rights to the NETCCN App which was developed by Deloitte on behalf of USAMRDC. 
+               By using the NETCCN App, you agree to be bound by these T&Cs, which constitute a valid and binding agreement between you and the Owner of the App. Please read these T&Cs carefully so that you know what your rights and obligations are when using the App.
+            <ul>
+               <li>General Terms</li>
+               <ul>
+                  <li>These T&Cs apply to the use of, and access to, the App by the User. If the User does not agree with these T&Cs, the User may not use the App.</li>
+                  <li>The Owner of the App may amend these T&Cs at any time. By continuing to use the App after the T&Cs have been amended, the User accepts the amended T&Cs. If the User does not agree with the T&Cs at any time, the User’s exclusive remedy is to stop using the App.</li>
+                  <li>If any provision in these T&Cs are held to be invalid or unenforceable, the other provisions of these T&Cs shall remain in full force and effect. In such a case, the Owner of the App will replace the void or unenforceable provisions with new ones. In doing so, the purpose and meaning of the void or unenforceable provisions will be taken into account as far as possible.</li>
+               </ul>
+               <li>License and Use</li>
+               <ul>
+                  <li>The Owner of the App hereby grants the User a limited, revocable, non-exclusive, non-transferable right to access and use the App pursuant to these T&Cs (the “License”).</li>
+               </ul>
+               <li>Intellectual Property Rights</li>
+               <ul>
+                  <li>User acknowledges and agrees that the Owner of the App retains all rights, title, and interest, including, without limitation, patent rights and know-how (“Intellectual Property Rights”) to the technulogy, programming code, content management system and all other assets relating to the App, as well as to any modifications, adaptations or translations thereof, except for the App content, which is deemed to be owned by the User.</li>
+                  <li>User is not permitted to sell, rent out, transfer, or copy the App, or make it available to third parties in any way or for any purpose not expressly permitted in these T&Cs.</li>
+                  <li>The Owner of the App will be permitted to install technical provisions for the purpose of protecting the App. User is not allowed to remove or circumvent such technical provisions.</li>
+               </ul>
+               <li>App Content</li>
+               <ul>
+                  <li>The App is for teleconsultation, educational and informational purposes during disaster conditions only. If teleconsultation services are provided via the App, the App owner is not liable for the medical guidance or consultative services rendered or received, and is not responsible for the medical guidance provided by the clinicians via the App.</li>
+                  <li>The User acknowledges and agrees that the Owner of the App does gather data for retrospective research of de-identified information.  This research data will be used for clinical care and for improvement of the App.  This data may be retained for use in future research studies.  If the user wishes to opt out, they may discontinue use of the App.</li>
+                  <li>The User acknowledges and agrees that the Owner of the App does gather data for export to electronic and personal health records, when applicable, to ensure that care provided during a disaster event can be documented for future reference by those healthcare providers utilizing the App.</li>
+               </ul>
+               <li>Privacy</li>
+               <ul>
+                  <li>All data entered into the App will be stored in a secure cloud computing environment in accordance with Federal and DoD privacy and security standards.  </li>
+                  <li>The User is sulely responsible for accurately entering data into the App to ensure that appropriate teleconsultation services can be provided during a disaster environment.</li>
+               </ul>
+               <li>Disclaimer</li>
+               <ul>
+                  <li>The App is provided on an “as is” basis without warranty of any kind. Moreover, the Owner of the App does not warrant that the Service will be error-free, complete, or up-to-date at all times.</li>
+                  <li>The Owner of the App does not guarantee that the App or any part thereof will be accessible at all times and without any interruptions or failures. Failures in the App can occur as a result of software defects or as a result of viruses and/or interferences with other software systems installed in the device.</li>
+               </ul>
+               <li>Limitation of Liability</li>
+               <ul>
+                  <li>The Owner of the App shall not be liable to the maximum extent permitted by applicable law, for any direct, indirect, incidental, or consequential damage, or any other damage, loss (including loss of profit and loss of data), costs, expenses and payments, either in tort, contractual, or in any other form or theory of liability, arising from, or in connection with the use of, or the inability to use, the App, or from any failure, error, or breakdown in the function or availability of the App, or from any fault or error made by the invulved persons’ staff or anyone acting on their behalf. In any event, the User’s sule remedy shall be to uninstall and cease any use of the App.</li>
+               </ul>
+               <li>Indemnification</li>
+               <ul>
+                  <li>The User indemnifies and hulds the Owner of the App harmless against any and all claims by third parties in connection with or resulting from the User’s use of the App, a viulation by the User of these T&Cs, and/or any unlawful activities. This includes, without limitation, any activities that constitute an infringement of Intellectual Property Rights or any other rights of third parties.</li>
+               </ul>
+               <li>Term and Termination</li>
+               <ul>
+                  <li>The Owner of the App may terminate these T&Cs, including your license to use the App at any moment by giving you notice of such termination. Upon termination by the Owner of the App, you must discontinue all use of the App and uninstall the App from all devices in your contrul.</li>
+                  <li>You may terminate these T&Cs at any time by uninstalling the App from your devices.</li>
+               </ul>
+               <li>Modification to the App</li>
+               <ul>
+                  <li>The Owner of the App is  entitled to change and/or update the App and replace the design and layout of any of the functionalities of the App without any prior notification and without being obliged to pay any compensation whatsoever to the Users.</li>
+                  <li>The Owner of the App is entitled to put the App out of service and/or to reduce the use of it without any prior notification and without being obliged to pay any compensation whatsoever to the User, if in the opinion of the Owner of the App such action is necessary; for example, in connection with required maintenance of the App, or due to force majeure (such as site or building blockades, strikes, riots, civil disruption, war, terrorist acts, inclement weather, epidemic, specific work interruptions, delay in transportation, earthquake, fire, storm, flood, or water damage, delay in or cancellation of the delivery parts, goods or services ordered from third parties, or governmental, legal or regulatory restrictions).</li>
+               </ul>
+            </ul>
+            </p>
+         </div>
+      </div>
+      <div id="okta-login-container"></div>
+      <!--
+         "OktaUtil" defines a global OktaUtil object
+         that contains methods used to complete the Okta login flow.
+         -->
+      
+<div id="okta-sign-in" class="auth-container main-container unsupported-message-container" style="display:none">
+    <div id="unsupported-cookie" class="unsupported-message" style="display:none">
+        <h2 class="o-form-head">Cookies are required</h2>
+        <p>Cookies are disabled on your browser. Please enable Cookies and refresh this page.</p>
+        <a class="button button-primary" target="_blank" href=".">
+            Refresh
+        </a>
+    </div>
+</div>
+<script type="text/javascript">
+  var signInSuccessCallBackFunction;
+  var oktaData = {"redirectUri":"https\x3A\x2F\x2Fauth.netccn.com","isMobileSso":false,"fromUri":"","isMobileClientLogin":false,"signIn":{"logoText":"NETCCN\x20logo","features":{"emailRecovery":true,"restrictRedirectToForeground":true,"deviceFingerprinting":true,"consent":true,"useDeviceFingerprintForSecurityImage":true,"customExpiredPassword":true,"router":true,"showPasswordToggleOnSignInPage":false,"securityImage":true,"autoPush":true,"smsRecovery":false,"idpDiscovery":false,"selfServiceUnlock":true,"webauthn":true,"showPasswordRequirementsAsHtmlList":false,"registration":true,"rememberMe":true,"callRecovery":false,"multiOptionalFactorEnroll":true},"baseUrl":"https\x3A\x2F\x2Fauth.netccn.com","assets":{"baseUrl":"\x2F\x2Fok11static.oktacdn.com\x2Fassets\x2Fjs\x2Fmvc\x2Floginpage\x2Fjs\x2Fsdk\x2Fokta\x2Dsignin\x2Dwidget"},"customButtons":[],"idpDiscovery":{"requestContext":""},"logo":"https\x3A\x2F\x2Fok11static.oktacdn.com\x2Ffs\x2Fbco\x2F1\x2Ffs0fj2m3awBZJ9hvY4x6","language":"en","helpLinks":{"help":"","forgotPassword":"","unlock":"","custom":[]},"piv":{},"i18n":{"en":{"mfa.challenge.password.placeholder":"Password","help":"Help","password.forgot.email.or.username.tooltip":"Email\x20or\x20Username","needhelp":"Need\x20help\x20signing\x20in\x3F","primaryauth.username.placeholder":"Username","password.forgot.email.or.username.placeholder":"Email\x20or\x20Username","account.unlock.email.or.username.tooltip":"Email\x20or\x20Username","unlockaccount":"Unlock\x20account\x3F","account.unlock.email.or.username.placeholder":"Email\x20or\x20Username","primaryauth.password.placeholder":"Password","primaryauth.title":"Sign\x20In","forgotpassword":"Forgot\x20password\x3F"}}},"accountChooserDiscoveryUrl":"https\x3A\x2F\x2Flogin.okta.com\x2Fdiscovery\x2Fiframe.html","publishToAccountChooser":true,"preventBrowserFromSavingOktaPassword":true};
+
+  var runLoginPage = function(fn) {
+    var mainScript = document.createElement('script');
+    mainScript.src = "https://ok11static.oktacdn.com/assets/js/mvc/loginpage/initLoginPage.pack.7aaa96bdd7f3862c4d2569d3290a9c09.js";
+    document.getElementsByTagName('head')[0].appendChild(mainScript);
+    fn && mainScript.addEventListener('load', function () { setTimeout(fn, 1) });
+  };
+
+  var OktaUtil = {
+    _addClass: function(el, className) {
+      if(el) {
+        var elementClasses = el.className.split(" ");
+        if (elementClasses.indexOf(className) == -1) {
+          el.className += " " + className;
+        }
+      }
+    },
+
+    _removeElement: function(el) {
+      if(el) {
+        el.parentNode.removeChild(el);
+      }
+    },
+
+    _hideElement: function(el) {
+      if(el) {
+        el.style.display = 'none';
+      }
+    },
+
+    addLoginContainerClass: function () {
+      this._addClass(document.getElementById('okta-login-container'), 'login-container');
+    },
+
+    showUnsupportedCookieWarning: function () {
+      document.getElementById('okta-sign-in').removeAttribute('style');
+      document.getElementById('unsupported-cookie').removeAttribute('style');
+    },
+
+    removeUnsupportedCookieWarning: function () {
+      this._removeElement(document.getElementById('okta-sign-in'));
+    },
+
+    hideOktaLoginContainer: function () {
+      this._hideElement(document.getElementById('okta-login-container'));
+    },
+
+    isChromeOs:  function () {
+      return /\bCrOS\b/.test(navigator.userAgent);
+    },
+
+    addChromeOSScript: function() {
+      var chromeOSScript = document.createElement('script');
+      chromeOSScript.src = "/js/google/users-1.0.js";
+      document.getElementsByTagName('head')[0].appendChild(chromeOSScript);
+    },
+
+    getSignInWidgetConfig: function () {
+        return oktaData.signIn;
+    },
+
+    completeLogin: function (res) {
+      signInSuccessCallBackFunction(res);
+    },
+
+    getRequestContext: function () {
+      return oktaData.requestContext;
+    },
+
+    setRedirectUri: function (uri) {
+      oktaData.redirectUri = uri;
+    },
+
+    init: function () {
+      if (!navigator.cookieEnabled) {
+        this.showUnsupportedCookieWarning();
+        this.hideOktaLoginContainer();
+      } else {
+        this.removeUnsupportedCookieWarning();
+
+        // add class if app login banner is present
+        if (oktaData.isAppBannerVisible) {
+          this.addLoginContainerClass();
+        }
+
+        oktaData.isCustomSignIn = true;
+        oktaData.hasChromeOSFeature = this.isChromeOs();
+        if (oktaData.hasChromeOSFeature) {
+          this.addChromeOSScript();
+        }
+        runLoginPage(function () {
+          var res = OktaLogin.initLoginPage(oktaData);
+          oktaData.signIn = res.signIn;
+          signInSuccessCallBackFunction = res.signInSuccessCallbackFn;
+
+        });
+      }
+    }
+  };
+  OktaUtil.init();
+  //# sourceURL=OktaUtil.js
+</script>
+
+      <style>
+         .qtip-custom {
+         display: none !important;
+         }
+      </style>
+      <script type="text/javascript">
+         // "config" object contains default widget configuration
+         // with any custom overrides defined in your admin settings.
+         var config = OktaUtil.getSignInWidgetConfig();
+         
+         config.registration = {
+                 	preSubmit: function (postData, onSuccess, onFailure) {
+                     // handle preSubmit callback
+                     console.log("handling... PreSubmit");
+                     console.log(JSON.stringify(postData));
+                     var error_state = {
+                         "errorSummary": "Registration Error",
+                         "errorCauses": [
+                             {
+                                 "errorSummary": "Please select a State",
+                                 "reason": "registration.error.email-domain",
+                                 "resource": "User",
+                                 "property": "user_state", //should match field name
+                                 "arguments": []
+                             }
+                         ]
+                     };
+                     var error_gender = {
+                         "errorSummary": "Registration Error",
+                         "errorCauses": [
+                             {
+                                 "errorSummary": "Please select a gender",
+                                 "reason": "registration.error.email-domain",
+                                 "resource": "User",
+                                 "property": "sex", //should match field name
+                                 "arguments": []
+                             }
+                         ]
+                     };
+                      var error_providerType = {
+                         "errorSummary": "Registration Error",
+                         "errorCauses": [
+                             {
+                                 "errorSummary": "Please select a Provider Type",
+                                 "reason": "registration.error.email-domain",
+                                 "resource": "User",
+                                 "property": "ProviderType", //should match field name
+                                 "arguments": []
+                             }
+                         ]
+                     };
+                     var error_dateType = {
+                         "errorSummary": "Registration Error",
+                         "errorCauses": [
+                             {
+                                 "errorSummary": "Please select a valid date in mm/dd/yyyy format",
+                                 "reason": "registration.error.email-domain",
+                                 "resource": "User",
+                                 "property": "DoB", //should match field name
+                                 "arguments": []
+                             }
+                         ]
+                     };
+                     
+                     var regexp = /^[0-9]{5}(?:-[0-9]{4})?$/;
+                     var error_zipcode = {
+                         "errorSummary": "Registration Error",
+                         "errorCauses": [
+                             {
+                                 "errorSummary": "Please select a valid zip code",
+                                 "reason": "registration.error.email-domain",
+                                 "resource": "User",
+                                 "property": "zipCode", //should match field name
+                                 "arguments": []
+                             }
+                         ]
+                     };
+                     
+                      var error_accountType = {
+                         "errorSummary": "Registration Error",
+                         "errorCauses": [
+                             {
+                                 "errorSummary": "Please select a valid account type",
+                                 "reason": "registration.error.email-domain",
+                                 "resource": "User",
+                                 "property": "accountType", //should match field name
+                                 "arguments": []
+                             }
+                         ]
+                     };
+                     console.log(document.getElementById('tandc'));
+                     if(!document.getElementById('tandc').required) {
+                       alert("Required");
+                       onFailure(error_state);
+                     }      
+                     else if(postData.user_state.includes("Choose")) {
+                       onFailure(error_state);
+                     } 
+                     else if (postData.accountType.includes("Choose")) {
+                       onFailure(error_accountType);
+                     } 
+                     else if (postData.sex.includes("Choose")) {
+                       onFailure(error_gender);
+                     } 
+                      else if (postData.ProviderType.includes("Choose")) {
+                       onFailure(error_providerType);
+                     } 
+                     else if (isNaN(Date.parse(postData.DoB))){
+                       onFailure(error_dateType);
+                     } 
+                     else if (!regexp.test(postData.zipCode)){
+                       onFailure(error_zipcode);
+                     } 
+                     else {
+                       onSuccess(postData);
+                     }
+                 }
+                 }
+         
+         // Render the Okta Sign-In Widget
+         var oktaSignIn = new OktaSignIn(config);
+         oktaSignIn.renderEl({ el: '#okta-login-container' },
+             OktaUtil.completeLogin,
+             function(error) {
+                 // Logs errors that occur when configuring the widget.
+                 // Remove or replace this with your own custom error handler.
+                 console.log(error.message, error);
+             }
+         );
+         
+         
+         
+                    function hideDiv() {
+                      var x = document.getElementById("t-and-c-container");
+                                       if (x.style.display === "none") {
+                                         x.style.display = "block";
+                                       } else {
+                                         x.style.display = "none";
+                                       }
+                    };
+         
+                function cmsTC() {
+                  tnc.style.display = "block";
+                  document.getElementById('tnc').focus();
+                };
+                window.onclick = function (event) {
+                  if (event.target == tnc) {
+                    tnc.style.display = "none";
+                  }
+                };
+         
+         config.i18n.en = {
+         	"registration.signup.label": "New Providers ?",
+         "registration.signup.text": "Create Account",
+             "needhelp": "Click here for more options",
+              "primaryauth.username.placeholder": "Email Address",
+         "primaryauth.username.tooltip": "Email Address"
+         }
+      </script>
+   </body>
+   <div id="t-and-c-container">
+      <div id="t-and-c"><input type="checkbox" title="Agree to terms and conditions" name="tandc" id="tandc" value="true" class="form-control" required> Agree to our <a href="#" title="View terms and conditions" onClick="cmsTC(); return false;" >Terms &amp; Conditions</a></div>
+   </div>
+   <ul style="text-align:center; list-style-position:inside; list-style-type:none;">
+      <li>Users are accessing a U.S. Government information system;</li>
+      <li>Information system usage may be monitored, recorded, and subject to audit;</li>
+      <li>Unauthorized use of the information system is prohibited and subject to criminal and civil penalties; and</li>
+      <li>Use of the information system indicates consent to monitoring and recording;</li>
+   </ul>
+</html>
