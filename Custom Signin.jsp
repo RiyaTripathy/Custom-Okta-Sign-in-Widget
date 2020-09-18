@@ -1,4 +1,3 @@
-auth.netccn.com
 
 <!DOCTYPE html>
 <!--suppress ALL -->
