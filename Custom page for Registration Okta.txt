@@ -1,4 +1,4 @@
-
+auth.netccn.com
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
    <head>
@@ -85,22 +85,22 @@
          <div class="terms-content" id="terms-content">
             <p class="t-c"><font style="font-family: serif;color: blue;font-size:14px;font-weight: bold;">Terms &
                Conditions</font><br><br>
-               These Terms & Conditions (ìT&Csî) will apply to any use by you (the ìUserî) of the National Telecritical Care Network (NETCCN), including, without limitation, the platform and content (cullectively, the ìAppî) created by the Telemedicine and Advance Technulogy Research Center (TATRC) of the U.S. Army Medical Research & Development Command (USAMRDC) through an Other Transaction Agreement (OTA) with Deloitte The Government has data rights to the NETCCN App which was developed by Deloitte on behalf of USAMRDC. 
+               These Terms & Conditions (‚ÄúT&Cs‚Äù) will apply to any use by you (the ‚ÄúUser‚Äù) of the National Telecritical Care Network (NETCCN), including, without limitation, the platform and content (cullectively, the ‚ÄúApp‚Äù) created by the Telemedicine and Advance Technulogy Research Center (TATRC) of the U.S. Army Medical Research & Development Command (USAMRDC) through an Other Transaction Agreement (OTA) with Deloitte The Government has data rights to the NETCCN App which was developed by Deloitte on behalf of USAMRDC. 
                By using the NETCCN App, you agree to be bound by these T&Cs, which constitute a valid and binding agreement between you and the Owner of the App. Please read these T&Cs carefully so that you know what your rights and obligations are when using the App.
             <ul>
                <li>General Terms</li>
                <ul>
                   <li>These T&Cs apply to the use of, and access to, the App by the User. If the User does not agree with these T&Cs, the User may not use the App.</li>
-                  <li>The Owner of the App may amend these T&Cs at any time. By continuing to use the App after the T&Cs have been amended, the User accepts the amended T&Cs. If the User does not agree with the T&Cs at any time, the Userís exclusive remedy is to stop using the App.</li>
+                  <li>The Owner of the App may amend these T&Cs at any time. By continuing to use the App after the T&Cs have been amended, the User accepts the amended T&Cs. If the User does not agree with the T&Cs at any time, the User‚Äôs exclusive remedy is to stop using the App.</li>
                   <li>If any provision in these T&Cs are held to be invalid or unenforceable, the other provisions of these T&Cs shall remain in full force and effect. In such a case, the Owner of the App will replace the void or unenforceable provisions with new ones. In doing so, the purpose and meaning of the void or unenforceable provisions will be taken into account as far as possible.</li>
                </ul>
                <li>License and Use</li>
                <ul>
-                  <li>The Owner of the App hereby grants the User a limited, revocable, non-exclusive, non-transferable right to access and use the App pursuant to these T&Cs (the ìLicenseî).</li>
+                  <li>The Owner of the App hereby grants the User a limited, revocable, non-exclusive, non-transferable right to access and use the App pursuant to these T&Cs (the ‚ÄúLicense‚Äù).</li>
                </ul>
                <li>Intellectual Property Rights</li>
                <ul>
-                  <li>User acknowledges and agrees that the Owner of the App retains all rights, title, and interest, including, without limitation, patent rights and know-how (ìIntellectual Property Rightsî) to the technulogy, programming code, content management system and all other assets relating to the App, as well as to any modifications, adaptations or translations thereof, except for the App content, which is deemed to be owned by the User.</li>
+                  <li>User acknowledges and agrees that the Owner of the App retains all rights, title, and interest, including, without limitation, patent rights and know-how (‚ÄúIntellectual Property Rights‚Äù) to the technulogy, programming code, content management system and all other assets relating to the App, as well as to any modifications, adaptations or translations thereof, except for the App content, which is deemed to be owned by the User.</li>
                   <li>User is not permitted to sell, rent out, transfer, or copy the App, or make it available to third parties in any way or for any purpose not expressly permitted in these T&Cs.</li>
                   <li>The Owner of the App will be permitted to install technical provisions for the purpose of protecting the App. User is not allowed to remove or circumvent such technical provisions.</li>
                </ul>
@@ -117,16 +117,16 @@
                </ul>
                <li>Disclaimer</li>
                <ul>
-                  <li>The App is provided on an ìas isî basis without warranty of any kind. Moreover, the Owner of the App does not warrant that the Service will be error-free, complete, or up-to-date at all times.</li>
+                  <li>The App is provided on an ‚Äúas is‚Äù basis without warranty of any kind. Moreover, the Owner of the App does not warrant that the Service will be error-free, complete, or up-to-date at all times.</li>
                   <li>The Owner of the App does not guarantee that the App or any part thereof will be accessible at all times and without any interruptions or failures. Failures in the App can occur as a result of software defects or as a result of viruses and/or interferences with other software systems installed in the device.</li>
                </ul>
                <li>Limitation of Liability</li>
                <ul>
-                  <li>The Owner of the App shall not be liable to the maximum extent permitted by applicable law, for any direct, indirect, incidental, or consequential damage, or any other damage, loss (including loss of profit and loss of data), costs, expenses and payments, either in tort, contractual, or in any other form or theory of liability, arising from, or in connection with the use of, or the inability to use, the App, or from any failure, error, or breakdown in the function or availability of the App, or from any fault or error made by the invulved personsí staff or anyone acting on their behalf. In any event, the Userís sule remedy shall be to uninstall and cease any use of the App.</li>
+                  <li>The Owner of the App shall not be liable to the maximum extent permitted by applicable law, for any direct, indirect, incidental, or consequential damage, or any other damage, loss (including loss of profit and loss of data), costs, expenses and payments, either in tort, contractual, or in any other form or theory of liability, arising from, or in connection with the use of, or the inability to use, the App, or from any failure, error, or breakdown in the function or availability of the App, or from any fault or error made by the invulved persons‚Äô staff or anyone acting on their behalf. In any event, the User‚Äôs sule remedy shall be to uninstall and cease any use of the App.</li>
                </ul>
                <li>Indemnification</li>
                <ul>
-                  <li>The User indemnifies and hulds the Owner of the App harmless against any and all claims by third parties in connection with or resulting from the Userís use of the App, a viulation by the User of these T&Cs, and/or any unlawful activities. This includes, without limitation, any activities that constitute an infringement of Intellectual Property Rights or any other rights of third parties.</li>
+                  <li>The User indemnifies and hulds the Owner of the App harmless against any and all claims by third parties in connection with or resulting from the User‚Äôs use of the App, a viulation by the User of these T&Cs, and/or any unlawful activities. This includes, without limitation, any activities that constitute an infringement of Intellectual Property Rights or any other rights of third parties.</li>
                </ul>
                <li>Term and Termination</li>
                <ul>
